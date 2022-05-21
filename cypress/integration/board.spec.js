@@ -57,13 +57,13 @@ describe("Create boards", () => {
     cy.get(boardLocators.previousButton).click();
   });
 
-  it("Trying to create board withou title", () => {
+  it("Trying to create board without title", () => {
     cy.visit("baseUrl");
     cy.get(headerLocators.displayAllOrganizations).click();
     cy.get(organization.selectOrganization).click();
     cy.get(boardLocators.confirmOnPopUpModal).click();
     cy.get(boardLocators.addNewBoard).click();
-    cy.get(boardLocators.nextAndFinishButton).click();
+    cy.get(boardLocators.nextAndFinishButton).trigger('mouseover')
   });
 
   it("Open board", () => {
