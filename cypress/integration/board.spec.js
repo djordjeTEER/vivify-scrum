@@ -10,7 +10,6 @@ describe("Create boards", () => {
     cy.get(login.emailAdressInputField).type("consulteerqa@gmail.com");
     cy.get(login.passwordInputField).type("User12345.");
     cy.get(login.loginButton).click();
-    cy.wait(5000);
   });
 
   it("Create new Scrum board", () => {
@@ -63,8 +62,9 @@ describe("Create boards", () => {
     cy.get(organization.selectOrganization).click();
     cy.get(boardLocators.confirmOnPopUpModal).click();
     cy.get(boardLocators.addNewBoard).click();
-    cy.get(boardLocators.nextAndFinishButton).trigger('mouseover')
-  });
+    cy.get(boardLocators.nextAndFinishButton).trigger('mouseover', {force: true})
+    cy.get(boardLocators.nextAndFinishButton).should('have.attribute', 'disabled')
+  });   
 
   it("Open board", () => {
     cy.visit("baseUrl");

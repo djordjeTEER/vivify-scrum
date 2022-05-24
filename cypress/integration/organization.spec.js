@@ -8,7 +8,6 @@ describe("Create new organization", () => {
     cy.get(login.emailAdressInputField).type("consulteerqa@gmail.com");
     cy.get(login.passwordInputField).type("User12345.");
     cy.get(login.loginButton).click();
-    cy.wait(5000);
   });
 
   it("Create organization", () => {
@@ -24,7 +23,8 @@ describe("Create new organization", () => {
     cy.visit("baseUrl");
     cy.get(headerLocators.displayAllOrganizations).click();
     cy.get(organization.addNewOrganizationButton).click();
-    cy.get(organization.nextButton).click();
+    cy.get(organization.nextButton).click().trigger('mouseover', {force: true})
+    cy.get(boardLocators.nextAndFinishButton).should('have.attribute', 'disabled')
   });
 
   it("Navigate back through modal", () => {
