@@ -14,7 +14,7 @@ describe("Login", () => {
 
   it("Attempt to login with empty email field", () => {
     cy.visit("loginUrl");
-    cy.get(login.passwordInputField).type("23234324");
+    cy.get(login.passwordInputField).type("232343244");
     cy.get(login.loginButton).click();
   });
 
