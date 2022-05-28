@@ -28,7 +28,7 @@ describe("Login", () => {
   it("Attempt to login with wrong email", () => {
     cy.visit("baseUrl");
     cy.get(login.emailAdressInputField).type("obree1@gmail.com");
-    cy.get(login.passwordInputField).type("asdafds22");
+    cy.get(login.passwordInputField).type("asdafds222");
     cy.get(login.loginButton).click();
   });
 
